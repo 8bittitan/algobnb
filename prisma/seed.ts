@@ -9,6 +9,8 @@ async function main() {
   const homeListing = await prisma.listing.create({
     data: createListing({
       name: 'Blue Heaven',
+      latitude: 45.0275,
+      longitude: 84.6748,
     }),
   })
 

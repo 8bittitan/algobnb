@@ -20,7 +20,9 @@
     "seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
+    "@lucia-auth/adapter-prisma": "^3.0.2",
     "@prisma/client": "5.8.1",
+    "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-slot": "^1.0.2",
     "@remix-run/node": "^2.5.1",
     "@remix-run/react": "^2.5.1",
@@ -28,12 +30,17 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "embla-carousel-react": "8.0.0-rc19",
+    "is-ip": "^5.0.1",
     "isbot": "^4.1.0",
+    "lucia": "^2.7.6",
     "lucide-react": "^0.314.0",
+    "node-ipinfo": "^3.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "remix-utils": "^7.5.0",
     "tailwind-merge": "^2.2.1",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.3.1",

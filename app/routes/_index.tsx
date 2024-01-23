@@ -1,4 +1,4 @@
-import { json, type MetaFunction } from '@remix-run/node'
+import { json, LoaderFunctionArgs, type MetaFunction } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
 
 import {
@@ -9,6 +9,7 @@ import {
   CarouselPrevious,
 } from '~/components/ui/carousel'
 import prisma from '~/lib/db.server'
+import { getLatitudeLongitudeFromIP } from '~/services/ipinfo'
 
 export const meta: MetaFunction = () => {
   return [
@@ -17,7 +18,11 @@ export const meta: MetaFunction = () => {
   ]
 }
 
-export const loader = async () => {
+export const loader = async ({ request }: LoaderFunctionArgs) => {
+  const coords = await getLatitudeLongitudeFromIP(request)
+
+  console.dir(coords)
+
   const listings = await prisma.listing.findMany({
     include: {
       images: true,
