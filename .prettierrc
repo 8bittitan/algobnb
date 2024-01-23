@@ -1,0 +1,16 @@
+{
+  "singleQuote": true,
+  "trailingComma": "all",
+  "semi": false,
+  "importOrder": [
+    "^(react/(.*)$)|^(react$)",
+    "^(@remix-run/(.*)$)|^(@remix-run$)",
+    "<THIRD_PARTY_MODULES>",
+    "",
+    "^types$",
+    "^~/(.*)$",
+    "",
+    "^[./]"
+  ],
+  "plugins": ["@ianvs/prettier-plugin-sort-imports", "prettier-plugin-tailwindcss"]
+}
