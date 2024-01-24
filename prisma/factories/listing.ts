@@ -6,7 +6,7 @@ type ReturnedListing = Omit<Listing, 'createdAt' | 'updatedAt' | 'id'>
 type ListingFactoryParams = Partial<ReturnedListing>
 
 export function createListing(
-  params?: Partial<ListingFactoryParams>,
+  params: Partial<ListingFactoryParams> & { userId: string },
 ): ReturnedListing {
   return {
     name: faker.commerce.productName(),

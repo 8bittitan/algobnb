@@ -6,7 +6,10 @@ import env from '~/lib/env.server'
 export async function getLatitudeLongitudeFromIP(request: Request) {
   const ipAddress = getClientIPAddress(request)
 
-  let coords = { latitude: 45.0275, longitude: 84.6748 }
+  let coords = {
+    latitude: env.DEFAULT_LATITUDE,
+    longitude: env.DEFAULT_LONGITUDE,
+  }
 
   if (ipAddress) {
     const ipInfo = new IPinfoWrapper(env.IPINFO_TOKEN)

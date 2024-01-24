@@ -5,7 +5,6 @@ import {
   type LoaderFunctionArgs,
 } from '@remix-run/node'
 import {
-  Form,
   Links,
   LiveReload,
   Meta,
@@ -17,8 +16,9 @@ import {
 
 import '~/styles.css'
 
-import { Button } from '~/components/ui/button'
 import { auth } from '~/lib/auth.server'
+
+import MainNavigation from './components/main-nav'
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const authReq = auth.handleRequest(request)
@@ -41,15 +41,10 @@ export default function App() {
         <Links />
       </head>
       <body>
-        {user ? (
-          <div>
-            <p>{user.username}</p>
-            <Form method="POST">
-              <Button variant="secondary">Logout</Button>
-            </Form>
-          </div>
-        ) : null}
-        <Outlet />
+        <MainNavigation user={user} />
+        <main className="mx-auto max-w-screen-2xl justify-between px-6">
+          <Outlet />
+        </main>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />

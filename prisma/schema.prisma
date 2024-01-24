@@ -14,9 +14,11 @@ model User {
   id String @id @unique
 
   username String
+  avatar   String?
 
   auth_session Session[]
   key          Key[]
+  listings     Listing[]
 }
 
 model Session {
@@ -70,6 +72,8 @@ model Listing {
 
   images ListingImage[]
   rooms  ListingRoom[]
+  User   User           @relation(fields: [userId], references: [id])
+  userId String
 }
 
 model ListingImage {
