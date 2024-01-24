@@ -18,13 +18,16 @@ export default function MainNavigation() {
 
       <div>
         {user ? (
-          <Form method="POST">
-            <Button variant="secondary">Logout</Button>
-          </Form>
-        ) : (
-          <div className="space-x-4">
-            <AuthModal />
+          <div className="flex items-center space-x-4">
+            <Button asChild variant="link">
+              <Link to="/create-listing">Create a listing</Link>
+            </Button>
+            <Form method="POST">
+              <Button variant="secondary">Logout</Button>
+            </Form>
           </div>
+        ) : (
+          <AuthModal />
         )}
       </div>
     </nav>
