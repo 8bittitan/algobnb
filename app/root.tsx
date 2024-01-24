@@ -11,14 +11,12 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  useLoaderData,
 } from '@remix-run/react'
 
 import '~/styles.css'
 
+import MainNavigation from '~/components/main-nav'
 import { auth } from '~/lib/auth.server'
-
-import MainNavigation from './components/main-nav'
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const authReq = auth.handleRequest(request)
@@ -29,11 +27,11 @@ export async function loader({ request }: LoaderFunctionArgs) {
   })
 }
 
-export default function App() {
-  const { user } = useLoaderData<typeof loader>()
+export type RootLoaderData = typeof loader
 
+export default function App() {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -41,7 +39,7 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <MainNavigation user={user} />
+        <MainNavigation />
         <main className="mx-auto max-w-screen-2xl justify-between px-6">
           <Outlet />
         </main>

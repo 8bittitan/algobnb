@@ -1,15 +1,13 @@
 import { Form, Link } from '@remix-run/react'
-import { User } from 'lucia'
 
 import AuthModal from '~/components/auth-modal'
 import { Button } from '~/components/ui/button'
 import { Input } from '~/components/ui/input'
+import useRootUser from '~/hooks/useRootUser'
 
-type Props = {
-  user?: User
-}
+export default function MainNavigation() {
+  const user = useRootUser()
 
-export default function MainNavigation({ user }: Props) {
   return (
     <nav className="mx-auto flex max-w-screen-2xl justify-between px-6 py-6">
       <Link to="/">AlgoBNB</Link>
