@@ -1,19 +1,6 @@
-import { LoaderFunctionArgs, redirect } from '@remix-run/node'
-import { Link } from '@remix-run/react'
+import { Link } from "@remix-run/react";
 
-import { Button } from '~/components/ui/button'
-import { auth } from '~/lib/auth.server'
-
-export async function loader({ request }: LoaderFunctionArgs) {
-  const authReq = auth.handleRequest(request)
-  const session = await authReq.validate()
-
-  if (!session) {
-    return redirect('/')
-  }
-
-  return {}
-}
+import { Button } from "~/components/ui/button";
 
 export default function CreateListing() {
   return (
@@ -52,7 +39,7 @@ export default function CreateListing() {
             </div>
           </div>
 
-          <div className="flex border-b-2 border-b-secondary py-8">
+          <div className="flex py-8">
             <div className="pr-4">
               <strong className="text-3xl">3</strong>
             </div>
@@ -73,7 +60,9 @@ export default function CreateListing() {
         <Button asChild variant="outline">
           <Link to="/">Exit</Link>
         </Button>
-        <Button>Get started</Button>
+        <Button asChild>
+          <Link to="/create-listing/info">Get started</Link>
+        </Button>
       </div>
     </>
   )

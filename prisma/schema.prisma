@@ -41,18 +41,25 @@ model Key {
 }
 
 model Listing {
-  id        String @id @default(cuid())
-  name      String
-  price     Int
-  beds      Int
-  baths     Int
-  sqft      Int
-  address   String
-  city      String
-  state     String
-  zip       Int
-  latitude  Float
-  longitude Float
+  id    String @id @default(cuid())
+  name  String
+  price Int
+
+  status String @default("pending")
+
+  type String? @default("house")
+
+  guests    Int?
+  bedrooms  Int?
+  beds      Int?
+  baths     Float?
+  sqft      Int?
+  address   String?
+  city      String?
+  state     String?
+  zip       Int?
+  latitude  Float?
+  longitude Float?
 
   has_self_check_in         Boolean @default(false)
   has_office                Boolean @default(false)
