@@ -8,6 +8,8 @@ const envSchema = z.object({
   DEFAULT_LONGITUDE: z.number({ coerce: true }).optional(),
   GITHUB_CLIENT_ID: z.string(),
   GITHUB_CLIENT_SECRET: z.string(),
+  ALGOLIA_APP_ID: z.string(),
+  ALGOLIA_ADMIN_API_KEY: z.string(),
 })
 
 export type Env = z.infer<typeof envSchema>

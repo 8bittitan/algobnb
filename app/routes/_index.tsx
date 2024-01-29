@@ -9,7 +9,7 @@ import {
   CarouselPrevious,
 } from '~/components/ui/carousel'
 import prisma from '~/lib/db.server'
-import { getLatitudeLongitudeFromIP } from '~/services/ipinfo'
+import { getLatitudeLongitudeFromIP } from '~/services/ipinfo.server'
 
 export const meta: MetaFunction = () => {
   return [
@@ -45,7 +45,6 @@ export default function Index() {
 
   return (
     <div>
-      <h1>Welcome to Remix</h1>
       <div className="mt-8 grid w-full grid-cols-5 gap-8">
         {listings.map((listing) => (
           <article key={listing.id} className="space-y-4">

@@ -14,7 +14,8 @@
     "db:push:fresh": "prisma db push --force-reset",
     "db:push:seed": "pnpm db:push:fresh && pnpm db:seed",
     "db:generate": "prisma generate",
-    "db:seed": "prisma db seed"
+    "db:seed": "prisma db seed",
+    "import": "tsx app/scripts/algolia.ts"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
@@ -31,6 +32,7 @@
     "@remix-run/node": "^2.5.1",
     "@remix-run/react": "^2.5.1",
     "@remix-run/serve": "^2.5.1",
+    "algoliasearch": "^4.22.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "embla-carousel-react": "8.0.0-rc19",
