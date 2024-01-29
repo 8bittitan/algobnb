@@ -17,6 +17,10 @@ async function importListings() {
 
     const listingsForAlolia = listings.map((l) => ({
       ...l,
+      _geolc: {
+        lat: l.latitude,
+        lng: l.longitude,
+      },
       objectID: l.id,
     }))
 
